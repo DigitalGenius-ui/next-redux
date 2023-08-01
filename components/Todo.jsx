@@ -9,8 +9,10 @@ import { FaTimes } from "react-icons/fa";
 import React, { useState } from "react";
 import moment from "moment/moment";
 import Layer from "./Layer";
+import { useDispatch, useSelector } from "react-redux";
+import { isCompleted, removeTodo } from "@/Redux/Slices/TodoSlice";
 
-const SingleTodo = () => {
+const SingleTodo = ({ setEditTodo }) => {
   const [showText, setShowText] = useState(false);
   const [showFullText, setShowFullText] = useState("");
 
@@ -20,20 +22,8 @@ const SingleTodo = () => {
     setShowText(true);
   };
 
-  const todo = [
-    {
-      id: 1,
-      text: "Hello world",
-      date: new Date(),
-      completed: false,
-    },
-    {
-      id: 2,
-      text: "Hello world",
-      date: new Date(),
-      completed: false,
-    },
-  ];
+  const todo = useSelector((state) => state.todo.todoLists);
+  const dispatch = useDispatch(null);
 
   return (
     <div id="grid">
@@ -59,13 +49,19 @@ const SingleTodo = () => {
             </h1>
 
             <div className="flex items-center justify-end gap-1 py-2">
-              <span className="cursor-pointer hover:text-slate-500">
+              <span
+                onClick={() => dispatch(removeTodo(todo.id))}
+                className="cursor-pointer hover:text-slate-500">
                 <AiTwotoneDelete />
               </span>
-              <span className="cursor-pointer hover:text-slate-500">
+              <span
+                onClick={() => setEditTodo(todo)}
+                className="cursor-pointer hover:text-slate-500">
                 <AiTwotoneEdit />
               </span>
-              <span className="cursor-pointer hover:text-slate-500">
+              <span
+                onClick={() => dispatch(isCompleted(todo))}
+                className="cursor-pointer hover:text-slate-500">
                 <AiOutlineCheckCircle />
               </span>
             </div>
