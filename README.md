@@ -1,11 +1,12 @@
+# How to use Redux Toolkit + Next JS 13 with three projects, Next JS Course 2023
 
 <img src="https://res.cloudinary.com/ghazni/image/upload/v1691332086/next_redux_bom4fp.png" alt="redux" width="100%"/>
 
 Demo
-Travel Website YouTub Video
+[YouTub Video](https://youtu.be/Qa1vUlighsE)
 
 Description
-Travel website is a static website build using React JS, Tailwind CSS, Framer-Motion as well as GSAP. This project is build for youtube channel and the teaches the beghinners the basic of React JS with the combination of Tailwind css and some Animation libraries.
+This repository is for youtube video that focuses on using Redux Toolkit with Next JS13. To undrestand redux more deep we are going to build three projects such as, Counter, TodoLists and shopping card. 
 
 
 ## Getting Started
